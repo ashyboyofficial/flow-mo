@@ -1,0 +1,19 @@
+.btn{
+	background-color: white;
+}
+.block {
+	width: 8%;
+	margin-left: 10px !important;
+}
+.block .btn-default {
+    padding: 8px 15px;
+    margin: 5px 5px;  
+    border-radius: 0;
+}
+.btn.active {
+	background-color: blanchedalmond;
+}
+.btn.active:focus {
+	box-shadow: 4px 4px 4px 4px blanchedalmond;
+	background-color: blanchedalmond !important;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="DragDropEditor">
+<head>
+<!-- CSS -->
+<link href="webjars/bootstrap/3.3.7/css/bootstrap.css" media="screen"
+	rel="stylesheet" type="text/css" />
+<link href="webjars/bootstrap/3.3.7/css/bootstrap-theme.css" media="screen"
+	rel="stylesheet" type="text/css" />
+<link href="resource/css/angular-area.css" media="screen"
+	rel="stylesheet" type="text/css" />
+<link href="resource/css/bootstrap-custom.css" media="screen"
+	rel="stylesheet" type="text/css" />
+<!-- JS Libraries -->
+<script type="text/javascript" src="webjars/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/angularjs/1.6.1/angular.js"></script>
+<script type="text/javascript"
+	src="webjars/bootstrap/3.3.7/js/bootstrap.js"></script>
+</head>
+<body ng-controller="MainController as main">
+	<div id="canvas" class="pull-right"
+		ng-controller="CanvasController as canvas">
+		<img id="grid" ng-areas="areasArray" currentobj="currentObject"
+			ng-areas-allow="{'edit':true, 'move':true, 'resize':true, 'select':true, 'remove':true, 'nudge':true}"
+			ng-areas-on-add="onAddArea" ng-areas-on-remove="onRemoveArea"
+			ng-areas-on-change="onChangeAreas"
+			ng-areas-extend-data="{pageNumber: 1, tag: 'img100%'}"
+			ng-src="resource/image/grid.jpg">
+	</div>
+	<div id="toolbar">
+		<div class="btn-toolbar">
+			<div class="block">
+				{{currentObject.idTag}}
+			</div>
+			<div class="btn-group block" data-toggle="buttons">
+				<label class="btn btn-default" ng-repeat="object in toolbarObjects" 
+					data-toggle="tooltip" title="{{object.name}}"  ng-click="selectObject(object)">
+					<img ng-src="resource/image/elements/{{object.img}}" width="20" />
+					<input name="options" id="object.id" type="radio">
+				</label> 
+			</div>
+		</div>
+	</div>
+</body>
+<!-- App JS -->
+<script type="text/javascript" src="resource/js/App.js"></script>
+<script type="text/javascript"
+	src="resource/js/controller/MainController.js"></script>
+<script type="text/javascript"
+	src="resource/js/controller/CanvasController.js"></script>
+<script type="text/javascript"
+	src="resource/js/ext-lib/angular-areas.js"></script>
+</html>
